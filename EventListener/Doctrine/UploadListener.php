@@ -3,6 +3,7 @@
 namespace Vich\UploaderBundle\EventListener\Doctrine;
 
 use Doctrine\Common\EventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 
 /**
  * UploadListener.
@@ -45,11 +46,11 @@ class UploadListener extends BaseListener
     }
 
     /**
-     * @param EventArgs $event The event
+     * @param PreUpdateEventArgs $event The event
      *
      * @throws \Vich\UploaderBundle\Exception\MappingNotFoundException
      */
-    public function preUpdate(EventArgs $event): void
+    public function preUpdate(PreUpdateEventArgs $event): void
     {
         $object = $this->adapter->getObjectFromArgs($event);
 
@@ -58,6 +59,7 @@ class UploadListener extends BaseListener
         }
 
         foreach ($this->getUploadableFields($object) as $field) {
+            dump('upload', $object, $field);
             $this->handler->upload($object, $field);
         }
 

@@ -6,17 +6,17 @@
 
     <services>
 
-        <service id="vich_uploader.command.mapping_debug_class" class="Vich\UploaderBundle\Command\MappingDebugClassCommand" public="false">
+        <service id="vich_uploader.command.mapping_debug_class" class="Vich\UploaderBundle\Command\MappingDebugClassCommand" public="true">
             <argument type="service" id="vich_uploader.metadata_reader" />
             <tag name="console.command" command="vich:mapping:debug-class" />
         </service>
 
-        <service id="vich_uploader.command.mapping_debug" class="Vich\UploaderBundle\Command\MappingDebugCommand" public="false">
+        <service id="vich_uploader.command.mapping_debug" class="Vich\UploaderBundle\Command\MappingDebugCommand" public="true">
             <argument>%vich_uploader.mappings%</argument>
             <tag name="console.command" command="vich:mapping:debug" />
         </service>
 
-        <service id="vich_uploader.command.mapping_list_classes" class="Vich\UploaderBundle\Command\MappingListClassesCommand" public="false">
+        <service id="vich_uploader.command.mapping_list_classes" class="Vich\UploaderBundle\Command\MappingListClassesCommand" public="true">
             <argument type="service" id="vich_uploader.metadata_reader" />
             <tag name="console.command" command="vich:mapping:list-classes" />
         </service>
